@@ -234,7 +234,7 @@ async function getuserInfoRealtime(userID){
                  <div class="card-body">
                  <h5 class="card-title">Complaints</h5>
                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                 <a href="./complaints.html" style="cursor:pointer;width:90px" class="btn btn-warning">View</a>
+                 <a href="./Complaints.html" style="cursor:pointer;width:90px" class="btn btn-warning">View</a>
                  </div>
                  </div>
 
