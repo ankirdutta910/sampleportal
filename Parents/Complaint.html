@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Complaint</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <link href="../../assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="../../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="../../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+
+  <link href="../../assets/css/style.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  
+</head>
+
+<body style="background-color: rgb(236, 240, 241)">
+
+
+  <div class="header">
+    <div class="header-left">
+      <a class="logo" style="margin-left: -15px;">
+        <img src="../assets/img/ASME-VIT.png" width="35" height="35" alt=""> <span>Parents Portal</span>
+      </a>
+    </div>
+  
+
+
+      </div>
+
+
+      <div class="sidebar" id="sidebar" style="background-color: #fff">
+        <div class="sidebar-inner slimscroll">
+            <div id="sidebar-menu" class="sidebar-menu">
+                <ul>
+                    <li class="menu-title">Parents Portal</li>
+                   
+                    <li>
+                        <a href="main.html"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+                    </li>
+                    <li >
+          <a href="Attendance/Attendance.html"><i class="fa fa-users"></i> <span>Attendance</span></a>
+        </li>
+    
+                 
+                   
+                    <li>
+                    <a href="Marks/marks.html"><i class="fa fa-book"></i> <span>Marks</span></a>
+                   </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="page-wrapper">
+    <div class="content" style="margin-top: -4vh; background-color: #fff; margin-left: 10px; margin-right: 10px; margin-top: 20px">
+    
+     
+
+    <div class="container-fluid">
+      <h3 style="text-align: center;font-weight: bold">Submit Complaint</h3><hr>
+
+<div class="container">
+  <div class="form">
+     <form class="form-horizontal" id="complaint">
+          <div class="alert alert-success" style="display:none" id="alert" role="alert"><i class="fa fa-check"></i> Success! Complaint submitted!</div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="name">Parent Name:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="NameMod" placeholder="Enter name" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+               <label class="control-label col-sm-2" for="name">Student Name:</label>
+               <div class="col-sm-10">
+                 <input type="text" class="form-control" id="SNameMod" placeholder="Enter name" required>
+               </div>
+             </div>
+
+             <div class="form-group">
+              <label class="control-label col-sm-2" for="name">Registration no.:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="RegMod" placeholder="Enter reg no." required>
+              </div>
+            </div>
+
+            <input type="date" hidden name="DateMod" id="DateMod" onload="getDate()">
+
+
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="pwd">Complaint:</label>
+            <div class="col-sm-10">
+               <textarea id="msgMod" class="form-control" rows="8" cols="50"></textarea>
+             
+            </div>
+          </div>
+
+          <input type="text" id="statusMod" value="Pending" hidden>
+
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+               <!-- <input type="submit" class="btn btn-success" id="submit" value="Submit"> -->
+               <button id="AddModBtn" type="button" class="btn btn-success" onclick="AddStd()">Submit</button>
+            </div>
+          </div>
+        </form>
+     </div>
+    
+</div>
+     
+
+      
+
+</div>
+
+</div>
+
+
+    </div>
+</main>
+
+  <script>
+  const dateInput = document.getElementById('DateMod');
+
+// ✅ Using the visitor's timezone
+dateInput.value = formatDate();
+
+console.log(formatDate());
+
+function padTo2Digits(num) {
+  return num.toString().padStart(2, '0');
+}
+
+function formatDate(date = new Date()) {
+  return [
+    date.getFullYear(),
+    padTo2Digits(date.getMonth() + 1),
+    padTo2Digits(date.getDate()),
+  ].join('-');
+}
+
+  </script>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+  <script src="../../assets/vendor/aos/aos.js"></script>
+  <script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../../assets/vendor/isotope-layout/isotope.pmarks_kgd.min.js"></script>
+  <script src="../../assets/vendor/php-email-form/validate.js"></script>
+  <script src="../../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../../assets/vendor/waypoints/noframework.waypoints.js"></script>
+
+
+  <script src="../../assets/js/main.js"></script>
+
+      <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+
+
+
+      <script>
+
+
+
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+          apiKey: "AIzaSyAN02Tq8Mc2ZsdrytJ60IDI1uOW-6H0q3s",
+          authDomain: "vkvdhemaji.firebaseapp.com",
+          databaseURL: "https://vkvdhemaji-default-rtdb.firebaseio.com",
+          projectId: "vkvdhemaji",
+          storageBucket: "vkvdhemaji.appspot.com",
+          messagingSenderId: "1027968460440",
+          appId: "1:1027968460440:web:6bfb5b5d22e4bd0cf3d2ed",
+          measurementId: "G-6FC323VBL8"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+      
+
+const auth=firebase.auth();
+const db=firebase.database();
+
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+  } else {
+    window.location.href = '../../main.html'; 
+  }
+});
+
+
+
+
+ //GET ALL DATA
+ var stdNo;
+        function SelectAllData(){
+          document.getElementById('tbody1').innerHTML="";
+
+          stdNo=0;
+            firebase.database().ref('Complaints').orderByChild('regno').once('value',
+            function(AllRecords){
+                AllRecords.forEach(
+                    function(CurrentRecord){
+           
+                       
+                       
+                        var pname = CurrentRecord.val().pname;
+                        var sname = CurrentRecord.val().sname;
+                        var regno = CurrentRecord.val().regno;
+                        var date = CurrentRecord.val().date;
+                        var message = CurrentRecord.val().message;
+                        var status = CurrentRecord.val().status;
+                     
+                        
+                        
+                        
+                        
+                        AddItemsToTable(pname,sname,regno,date,message,status);
+
+                    }
+                );
+
+            });
+        }
+
+        window.onload = SelectAllData;
+
+        //Filling the table
+        
+        var stdList = [];
+        function AddItemsToTable(pname,sname,regno,date,message,status){
+            var tbody = document.getElementById('tbody1');
+            var trow = document.createElement('tr');
+            var td0 = document.createElement('td');
+            var td1 = document.createElement('td');
+            var td2 = document.createElement('td');
+            var td3 = document.createElement('td');
+            var td4 = document.createElement('td');
+            var td5 = document.createElement('td');
+            var td6 = document.createElement('td');
+          
+         
+
+      
+
+
+          stdList.push([pname,sname,regno,date,message,status])
+     
+     
+           
+            td0.innerHTML = ++stdNo;
+            td1.innerHTML = pname;
+            td2.innerHTML = sname;
+            td3.innerHTML = regno;
+            td4.innerHTML = date;
+            td5.innerHTML = message;
+            td6.innerHTML = status;
+           
+           
+            
+    
+     
+            trow.appendChild(td0);
+            trow.appendChild(td1); 
+            trow.appendChild(td2); 
+            trow.appendChild(td3); 
+            trow.appendChild(td4); 
+            trow.appendChild(td5); 
+            trow.appendChild(td6); 
+           
+
+           
+      
+           
+           
+  
+            var ControlDiv = document.createElement("div");
+           
+            ControlDiv.innerHTML = '<button type="button" class="btn my-2 ml-2" style="height:30px;margin: 3px;color:white;margin-top:2px;font-size:12px;background-color:rgb(2, 142, 207);" data-toggle="modal" data-target="#exampleModalCenter" onclick="FillTboxes('+stdNo+')">Action</button>'
+         
+            trow.appendChild(ControlDiv);
+
+            tbody.appendChild(trow);
+            
+        }
+
+       
+       
+        var ModName = document.getElementById('NameMod');
+        var ModSName = document.getElementById('SNameMod');
+        var ModRegno = document.getElementById('RegMod');
+        var ModDate = document.getElementById('DateMod');
+        var Modmsg = document.getElementById('msgMod');
+        var Modstatus = document.getElementById('statusMod');
+      
+      
+      
+        var AddModBtn = document.getElementById('AddModBtn');
+        var UpdModBtn = document.getElementById('UpdModBtn');
+        var DelModBtn = document.getElementById('DelModBtn');
+
+
+        function FillTboxes(index){
+
+          if(index==null){
+
+           
+           
+            ModName.value = "";
+            ModSName.value = "";
+            ModRegno.value = "";
+            ModDate.value = "";
+            Modmsg.value = "";
+            Modstatus.value = "";
+          
+          
+             
+  
+           
+            ModRegno.disabled=false;
+            ModName.disabled=false;
+
+          
+              
+               AddModBtn.style.display='inline-block';
+               UpdModBtn.style.display='none';
+               DelModBtn.style.display='none';
+
+          }
+          else{
+               --index;
+         
+              
+              
+               ModName.value = stdList[index][0];
+               ModSName.value = stdList[index][1];
+               ModRegno.value = stdList[index][2];
+               ModDate.value = stdList[index][3];
+               Modmsg.value = stdList[index][4];
+               Modstatus.value = stdList[index][5];
+            
+            
+
+
+          
+             
+               AddModBtn.style.display='none';
+               UpdModBtn.style.display='inline-block';
+               DelModBtn.style.display='inline-block';
+
+          }
+        }
+
+        function AddStd(){
+             
+             firebase.database().ref("Complaints/" +ModRegno.value +ModDate.value).set(
+                  {
+               
+                   
+                   
+                    pname: ModName.value,
+                    sname: ModSName.value,
+                    regno: ModRegno.value,
+                    date: ModDate.value,
+                    message: Modmsg.value,
+                    status: Modstatus.value,
+                   
+                   
+                    
+
+                  },
+                  (error)=>{
+                       if(error){
+                            alert("Record was not added, there was some problem");
+                       }
+                       else{
+                            document.querySelector('#alert').style.display = 'block';
+
+                            setTimeout(function(){
+                            document.querySelector('#alert').style.display = 'none';
+                            },3000);
+
+                            document.getElementById('complaint').reset();
+
+                            SelectAllData();
+                   
+
+                            // Clear form
+                            document.getElementById('modal').reset();
+                                                
+                        
+
+                            
+                            
+                       }
+                  }
+             )
+        }
+
+
+
+
+// // Reference messages collection
+// var dataRef = firebase.database().ref("Complaints/");
+
+// // Listen for form submit
+// document.getElementById('complaint').addEventListener('submit', submitForm);
+
+// // Submit form
+// function submitForm(e){
+//   e.preventDefault();
+
+//   // Get values
+//   var pname = getInputVal('pname');
+//   var sname = getInputVal('sname');
+//   var message = getInputVal('msg');
+
+
+//   // Save message
+//   saveData(pname, sname, message);
+
+
+//  // Show alert
+//  document.querySelector('#alert').style.display = 'block';
+
+//  setTimeout(function(){
+//       document.querySelector('#alert').style.display = 'none';
+// },3000);
+
+//  // Clear form
+//  document.getElementById('complaint').reset();
+// }
+
+// // Function to get get form values
+// function getInputVal(id){
+//   return document.getElementById(id).value;
+// }
+
+// // Save message to firebase
+// function saveData(pname, sname, message){
+//   var newDataRef = dataRef.push();
+//   newDataRef.set({
+//      pname: pname,
+//      sname:sname,
+//      message:message,
+   
+//   });
+// }
+
+</script>
+
+
+</body>
+
+</html>

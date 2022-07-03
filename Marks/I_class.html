@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Marks_Class_I</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <link href="../assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+
+  <link href="../assets/css/style.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="../../hide.css">
+
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #d4d4d4;
+      text-align: left;
+      padding: 8px;
+      font-size: 12px;
+    }
+   
+    
+    tr:nth-child(even) {
+      background-color: #e4e4e4;
+   
+    }
+    </style>
+  
+
+  <style>
+
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  </style>
+</head>
+
+<body style="background-color: rgb(236, 240, 241)">
+
+
+  <div class="header">
+    <div class="header-left">
+      <a class="logo" style="margin-left: -15px;">
+        <img src="../assets/img/ASME-VIT.png" width="35" height="35" alt=""> <span>ADMIN Portal</span>
+      </a>
+    </div>
+
+    
+  
+
+
+      </div>
+
+
+      <div class="sidebar" id="sidebar" style="background-color: #fff">
+        <div class="sidebar-inner slimscroll">
+            <div id="sidebar-menu" class="sidebar-menu">
+                <ul>
+                    <li class="menu-title">Admin Panel</li>
+                   
+                    <li>
+                        <a href="../main.html"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+                    </li>
+                    <li >
+          <a href="../Attendance/Attendance.html"><i class="fa fa-users"></i> <span>Attendance</span></a>
+        </li>
+    
+                 
+                   
+                    <li>
+                    <a href="marks.html"><i class="fa fa-book"></i> <span>Marks</span></a>
+                   </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="page-wrapper">
+    <div class="content" style="margin-top: -4vh; background-color: #fff; margin-left: 10px; margin-right: 10px; margin-top: 20px">
+    
+     
+
+    <div class="container-fluid">
+      <h3 style="text-align: center;font-weight: bold; color: #4b8ccc">Marks (Class I)</h3><hr>
+
+      <div class="container-fluid">
+        <button style="margin-bottom: 5px;float: left;margin-left: -15px;" onclick="history.back()" type="button" class="btn btn-secondary"><i class="fa fa-backward"></i> Back</button>
+        <button style="margin-bottom: 5px;margin-left: 5px;" type="button" class="btn btn-secondary" onclick="location.href='I_class.html'"><i class="fa fa-spinner"></i> Refresh Page</button>
+        <button style="margin-bottom: 5px;float: right;margin-right: -15px;" type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter" onclick="FillTboxes(null)"><i class="fa fa-plus"></i> Add Student</button>
+      </div>
+       <div class="table-responsive custom-table-responsive">
+
+ 
+            <table class="table custom-table" id="myTable" style="color: black">
+                <thead>
+                    <tr style="background-color: #5793D1;color: #fff;"> 
+                      <th style="width: 50px" scope="col">S No.</th> 
+                      <th style="width: 17vh" scope="col">Reg no.</th>
+                      <th style="width: 30vh" scope="col">Name</th>   
+                      <th style="width: 90px" scope="col">CGPA</th>
+                      <th style="width: 50vh" scope="col">Remark</th>
+                      <th style="width: 90px" scope="col">Action</th>
+                
+
+                    </tr>
+                </thead>
+                <tbody id="tbody1">
+                   
+
+                </tbody>
+            </table>
+        </div>
+
+
+      
+     
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+ <div class="modal-dialog modal-dialog-centered" role="document">
+   <div class="modal-content">
+     <div class="modal-header"  style="background: linear-gradient(130deg, rgba(36, 85, 163, 1) 23%, rgba(52, 151, 219, 1) 52%, rgba(52, 142, 219, 1) 58%, rgba(52, 131, 219, 1) 65%, rgba(40, 116, 166, 1) 74%);">
+       <h5 class="modal-title" id="exampleModalLongTitle" style="font-size: 20px; text-align: center;font-weight: bold;color:white">Marks (Class I)</h5>
+       <button type="button" class="close" onclick="location.href='I_class.html'" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+       </button>
+     </div>
+     <div class="modal-body">
+
+
+<form id="modal">
+     
+      <div class="row">
+
+        <div class="col-md-4">
+            <label style="margin-top: 10px;color: rgb(94, 94, 94);">Registration no. :</label>
+        </div>
+        <div class="col-md-8">
+            <input type="text" id="RegMod" style="width: 100%;height: 35px;border-radius: 5px;border: 1px solid rgb(136, 136, 136);" placeholder="Enter Registration no." >
+        </div>
+
+       </div>
+
+
+
+      <br>
+        <div class="row">
+
+              <div class="col-md-4">
+                  <label style="margin-top: 10px;color: rgb(94, 94, 94);">Name :</label>
+              </div>
+              <div class="col-md-8">
+                  <input type="text" id="NameMod" style="width: 100%;height: 35px;border-radius: 5px;border: 1px solid rgb(136, 136, 136);" placeholder="Enter Name" required>
+              </div>
+
+       </div>
+
+
+       <br>
+      <table id="table1">
+      
+          <tr>
+            <th rowspan="8" style="width: 30vh;">Test 1</th>
+            <th style="width: 35vh;">Subject</th>
+            <th>Marks</th>
+           
+          </tr>
+   
+
+          <tr>
+       
+            <td>English</td>
+            <td> <input type="number" id="Test1Eng" style="width: 10vh;height: 35px;border-radius: 5px;border: 1px solid rgb(136, 136, 136);"></td>
+          
+          </tr>
+
+          <tr>
+            <td>Assamese</td>
+            <td> <input type="number" id="Test1Ass" style="width: 10vh;height: 35px;border-radius: 5px;border: 1px solid rgb(136, 136, 136);"></td>
+          </tr>
+
+          <tr>
+            <td>Hindi</td>
+            <td> <input type="number" id="Test1Hin" style="width: 10vh;height: 35px;border-radius: 5px;border: 1px solid rgb(136, 136, 136);"></td>
+          </tr>
+
+          <tr>
+            <td>Mathematics</td>
+            <td> <input type="number" id="Test1Math" style="width: 10vh;height: 35px;border-radius: 5px;border: 1px solid rgb(136, 136, 136);"></td>
+          </tr>
+
+          <tr>
+            <td>GK</td>
+            <td> <input type="number" id="Test1gk" style="width: 10vh;height: 35px;border-radius: 5px;border: 1px solid rgb(136, 136, 136);"></td>
+          </tr>
+
+
+      </table>
+   
+
+       <br>
+       <table id="table2">
+       
+          <tr>
+            <th rowspan="8" style="width: 30vh;">Half Yearly</th>
+            <th style="width: 35vh;">Subject</th>
+            <th>Marks</th>
+           
+          </tr>
+    
+
+          <tr>
+          
+            <td>English</td>
+            <td> <input type="number" id="HYEng" style="width: 10vh;height: 35px;border-radius: 5px;border: 1px solid rgb(136, 136, 136);"></td>
+          
+          </tr>
+
+          <tr>
+            <td>Assamese</td>
+            <td> <input type="number" id="HYAss" style="width: 10vh;height: 35px;border-radius: 5px;border: 1px solid rgb(136, 136, 136);"></td>
+          </tr>
+
+          <tr>
+            <td>Hindi</td>
+            <td> <input type="number" id="HYHin" style="width: 10vh;height: 35px;border-radius: 5px;border: 1px solid rgb(136, 136, 136);"></td>
+          </tr>
+
+          <tr>
+            <td>Mathematics</td>
+            <td> <input type="number" id="HYMath" style="width: 10vh;height: 35px;border-radius: 5px;border: 1px solid rgb(136, 136, 136);"></td>
+          </tr>
+
+          <tr>
+            <td>GK</td>
+            <td> <input type="number" id="HYgk" style="width: 10vh;height: 35px;border-radius: 5px;border: 1px solid rgb(136, 136, 136);"></td>
+          </tr>
+
+ 
+      </table>
+     
+      
+
+
+       <br>
+       <table id="table3">
+      
+          <tr>
+            <th rowspan="8" style="width: 30vh;">Test 2</th>
+            <th style="width: 35vh;">Subject</th>
+            <th>Marks</th>
+           
+          </tr>
+   
+
+          <tr>
+         
+            <td>English</td>
+            <td> <input type="number" id="Test2Eng" style="width: 10vh;height: 35px;border-radius: 5px;border: 1px solid rgb(136, 136, 136);"></td>
+          
+          </tr>
+
+          <tr>
+            <td>Assamese</td>
+            <td> <input type="number" id="Test2Ass" style="width: 10vh;height: 35px;border-radius: 5px;border: 1px solid rgb(136, 136, 136);"></td>
+          </tr>
+
+          <tr>
+            <td>Hindi</td>
+            <td> <input type="number" id="Test2Hin" style="width: 10vh;height: 35px;border-radius: 5px;border: 1px solid rgb(136, 136, 136);"></td>
+          </tr>
+
+          <tr>
+            <td>Mathematics</td>
+            <td> <input type="number" id="Test2Math" style="width: 10vh;height: 35px;border-radius: 5px;border: 1px solid rgb(136, 136, 136);"></td>
+          </tr>
+
+          <tr>
+            <td>GK</td>
+            <td> <input type="number" id="Test2gk" style="width: 10vh;height: 35px;border-radius: 5px;border: 1px solid rgb(136, 136, 136);"></td>
+          </tr>
+
+  
+      </table>
+
+
+       <br>
+       <table id="table4">
+      
+          <tr>
+            <th rowspan="8" style="width: 30vh;">Final</th>
+            <th style="width: 35vh;">Subject</th>
+            <th>Marks</th>
+           
+          </tr>
+       
+     
+
+          <tr>
+         
+            <td>English</td>
+            <td> <input type="number" id="FEng" style="width: 10vh;height: 35px;border-radius: 5px;border: 1px solid rgb(136, 136, 136);"></td>
+          
+          </tr>
+
+          <tr>
+            <td>Assamese</td>
+            <td> <input type="number" id="FAss" style="width: 10vh;height: 35px;border-radius: 5px;border: 1px solid rgb(136, 136, 136);"></td>
+          </tr>
+
+          <tr>
+            <td>Hindi</td>
+            <td> <input type="number" id="FHin" style="width: 10vh;height: 35px;border-radius: 5px;border: 1px solid rgb(136, 136, 136);"></td>
+          </tr>
+
+          <tr>
+            <td>Mathematics</td>
+            <td> <input type="number" id="FMath" style="width: 10vh;height: 35px;border-radius: 5px;border: 1px solid rgb(136, 136, 136);"></td>
+          </tr>
+
+          <tr>
+            <td>GK</td>
+            <td> <input type="number" id="Fgk" style="width: 10vh;height: 35px;border-radius: 5px;border: 1px solid rgb(136, 136, 136);"></td>
+          </tr>
+
+      
+      </table>
+
+
+       <br>
+       <div class="row">
+
+        <div class="col-md-4">
+            <label style="margin-top: 10px;color: rgb(94, 94, 94);">CGPA :</label>
+        </div>
+        <div class="col-md-8">
+            <input type="number" id="CGPAMod" style="width: 100%;height: 35px;border-radius: 5px;border: 1px solid rgb(136, 136, 136);" placeholder="Enter CGPA" required>
+        </div>
+
+       </div>
+
+
+       <br>
+      <div class="row">
+
+       <div class="col-md-4">
+           <label style="margin-top: 10px;color: rgb(94, 94, 94);">Remark :</label>
+       </div>
+       <div class="col-md-8">
+        <textarea id="msgMod" class="form-control" rows="4" cols="10"></textarea>
+       </div>
+
+      </div>
+
+
+       <div class="content" style="margin-top: 20px">
+        <div class="alert alert-success" style="display:none" id="added" role="alert">Success! Student added successfully.</div>
+        <div class="alert alert-warning" style="display:none" id="updated" role="alert">Success! Record updated successfully.</div>
+        <div class="alert alert-danger" style="display:none" id="deleted" role="alert">Success! Record deleted successfully.</div>
+  
+       </div>
+
+      </form>
+    
+        
+      </div>
+      
+     </div>
+     <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" onclick="location.href='I_class.html'">Close</button>
+      <button id="AddModBtn" type="button" class="btn btn-primary" onclick="AddStd()">Add Student</button>
+       <button id="UpdModBtn" type="button" class="btn btn-success"  onclick="UpdStd()">Update</button>
+       <button id="DelModBtn" type="button" class="btn btn-danger"  onclick="DelStd()">Delete</button>
+    
+     </div>
+   </div>
+ </div>
+
+
+
+
+
+ 
+</div>
+
+</div>
+
+
+    </div>
+</main>
+
+
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/vendor/isotope-layout/isotope.pmarks_kgd.min.js"></script>
+  <script src="../assets/vendor/php-email-form/validate.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../assets/vendor/waypoints/noframework.waypoints.js"></script>
+
+
+  <script src="../assets/js/main.js"></script>
+
+      <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+
+
+
+      <script>
+
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+          apiKey: "AIzaSyAN02Tq8Mc2ZsdrytJ60IDI1uOW-6H0q3s",
+          authDomain: "vkvdhemaji.firebaseapp.com",
+          databaseURL: "https://vkvdhemaji-default-rtdb.firebaseio.com",
+          projectId: "vkvdhemaji",
+          storageBucket: "vkvdhemaji.appspot.com",
+          messagingSenderId: "1027968460440",
+          appId: "1:1027968460440:web:6bfb5b5d22e4bd0cf3d2ed",
+          measurementId: "G-6FC323VBL8"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+      
+
+const auth=firebase.auth();
+const db=firebase.database();
+
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+  } else {
+    window.location.href = '../main.html'; 
+  }
+});
+
+
+ //GET ALL DATA
+ var stdNo;
+        function SelectAllData(){
+          document.getElementById('tbody1').innerHTML="";
+
+          stdNo=0;
+            firebase.database().ref('/Marks2022/class_I').orderByChild('regno').once('value',
+            function(AllRecords){
+                AllRecords.forEach(
+                    function(CurrentRecord){
+           
+                       
+                        var regno = CurrentRecord.val().regno;
+                        var name = CurrentRecord.val().name;
+
+                        var t1Eng = CurrentRecord.val().t1Eng;
+                        var t1Ass = CurrentRecord.val().t1Ass;
+                        var t1Hin = CurrentRecord.val().t1Hin;
+                        var t1Math = CurrentRecord.val().t1Math;
+                        var t1gk = CurrentRecord.val().t1gk;
+
+                        var hEng = CurrentRecord.val().hEng;
+                        var hAss = CurrentRecord.val().hAss;
+                        var hHin = CurrentRecord.val().hHin;
+                        var hMath = CurrentRecord.val().hMath;
+                        var hgk = CurrentRecord.val().hgk;
+
+                        var t2Eng = CurrentRecord.val().t2Eng;
+                        var t2Ass = CurrentRecord.val().t2Ass;
+                        var t2Hin = CurrentRecord.val().t2Hin;
+                        var t2Math = CurrentRecord.val().t2Math;
+                        var t2gk = CurrentRecord.val().t2gk;
+
+                        var fEng = CurrentRecord.val().fEng;
+                        var fAss = CurrentRecord.val().fAss;
+                        var fHin = CurrentRecord.val().fHin;
+                        var fMath = CurrentRecord.val().fMath;
+                        var fgk = CurrentRecord.val().fgk;
+
+            
+                        var cgpa = CurrentRecord.val().cgpa;
+                        var remark = CurrentRecord.val().remark;
+                        
+                    
+                        AddItemsToTable(regno,name,t1Eng,t1Ass,t1Hin,t1Math,t1gk,hEng,hAss,hHin,hMath,hgk,t2Eng,t2Ass,t2Hin,t2Math,t2gk,fEng,fAss,fHin,fMath,fgk,cgpa,remark);
+
+                    }
+                );
+
+            });
+        }
+
+        window.onload = SelectAllData;
+
+        //Filling the table
+        
+        var stdList = [];
+        function AddItemsToTable(regno,name,t1Eng,t1Ass,t1Hin,t1Math,t1gk,hEng,hAss,hHin,hMath,hgk,t2Eng,t2Ass,t2Hin,t2Math,t2gk,fEng,fAss,fHin,fMath,fgk,cgpa,remark){
+            var tbody = document.getElementById('tbody1');
+            var trow = document.createElement('tr');
+            var td0 = document.createElement('td');
+            var td1 = document.createElement('td');
+            var td2 = document.createElement('td');
+            var td3 = document.createElement('td');
+            var td4 = document.createElement('td');
+            var td5 = document.createElement('td');
+            var td6 = document.createElement('td');
+            var td7 = document.createElement('td');
+            var td8 = document.createElement('td');
+            var td9 = document.createElement('td');
+            var td10 = document.createElement('td');
+            var td11 = document.createElement('td');
+            var td12 = document.createElement('td');
+            var td13 = document.createElement('td');
+            var td14 = document.createElement('td');
+            var td15 = document.createElement('td');
+            var td16 = document.createElement('td');
+            var td17 = document.createElement('td');
+            var td18 = document.createElement('td');
+            var td19 = document.createElement('td');
+            var td20 = document.createElement('td');
+            var td21 = document.createElement('td');
+            var td22 = document.createElement('td');
+            var td23 = document.createElement('td');
+            var td24 = document.createElement('td');
+           
+       
+
+         
+
+          
+         
+
+      
+
+
+          stdList.push([regno,name,t1Eng,t1Ass,t1Hin,t1Math,t1gk,hEng,hAss,hHin,hMath,hgk,t2Eng,t2Ass,t2Hin,t2Math,t2gk,fEng,fAss,fHin,fMath,fgk,cgpa,remark])
+     
+     
+           
+            td0.innerHTML = ++stdNo;
+            td1.innerHTML = regno;
+            td2.innerHTML = name;
+
+            td3.innerHTML = cgpa;
+            td4.innerHTML = remark;
+           
+            
+    
+     
+            trow.appendChild(td0);
+            trow.appendChild(td1); 
+            trow.appendChild(td2); 
+            trow.appendChild(td3); 
+            trow.appendChild(td4); 
+    
+
+           
+      
+           
+           
+  
+            var ControlDiv = document.createElement("div");
+           
+            ControlDiv.innerHTML = '<button type="button" class="btn my-2 ml-2" style="height:30px;margin: 3px;color:white;margin-top:2px;font-size:12px;background-color:rgb(2, 142, 207);" data-toggle="modal" data-target="#exampleModalCenter" onclick="FillTboxes('+stdNo+')">Edit Record</button>'
+         
+            trow.appendChild(ControlDiv);
+
+            tbody.appendChild(trow);
+            
+        }
+
+       
+        var ModRegno = document.getElementById('RegMod');
+        var ModName = document.getElementById('NameMod');
+
+        var ModT1Eng = document.getElementById('Test1Eng');  
+        var ModT1Ass = document.getElementById('Test1Ass');  
+        var ModT1Hin = document.getElementById('Test1Hin');  
+        var ModT1Math = document.getElementById('Test1Math'); 
+        var ModT1Gk = document.getElementById('Test1gk');  
+
+        var ModHYEng = document.getElementById('HYEng');  
+        var ModHYAss = document.getElementById('HYAss');  
+        var ModHYHin = document.getElementById('HYHin');  
+        var ModHYMath = document.getElementById('HYMath'); 
+        var ModHYGk = document.getElementById('HYgk'); 
+
+        var ModT2Eng = document.getElementById('Test2Eng');  
+        var ModT2Ass = document.getElementById('Test2Ass');  
+        var ModT2Hin = document.getElementById('Test2Hin');  
+        var ModT2Math = document.getElementById('Test2Math'); 
+        var ModT2Gk = document.getElementById('Test2gk'); 
+
+        var ModFEng = document.getElementById('FEng');  
+        var ModFAss = document.getElementById('FAss');  
+        var ModFHin = document.getElementById('FHin');  
+        var ModFMath = document.getElementById('FMath'); 
+        var ModFGk = document.getElementById('Fgk'); 
+       
+
+
+
+        var ModCGPA= document.getElementById('CGPAMod');
+        var ModRemark= document.getElementById('msgMod');
+      
+      
+        var AddModBtn = document.getElementById('AddModBtn');
+        var UpdModBtn = document.getElementById('UpdModBtn');
+        var DelModBtn = document.getElementById('DelModBtn');
+
+
+        function FillTboxes(index){
+
+          if(index==null){
+
+           
+            ModRegno.value = "Enter Registration no.";
+            ModName.value = "";
+
+            ModT1Eng.value = "";
+            ModT1Ass.value = "";
+            ModT1Hin.value = "";
+            ModT1Math.value = "";
+            ModT1Gk.value = "";
+
+            ModHYEng.value = "";
+            ModHYAss.value = "";
+            ModHYHin.value = "";
+            ModHYMath.value = "";
+            ModHYGk.value = "";
+
+            ModT2Eng.value = "";
+            ModT2Ass.value = "";
+            ModT2Hin.value = "";
+            ModT2Math.value = "";
+            ModT2Gk.value = "";
+
+            ModFEng.value = "";
+            ModFAss.value = "";
+            ModFHin.value = "";
+            ModFMath.value = "";
+            ModFGk.value = "";
+
+            ModCGPA.value = "";
+            ModRemark.value = "";
+          
+             
+  
+           
+            ModRegno.disabled=false;
+            ModName.disabled=false;
+
+          
+              
+               AddModBtn.style.display='inline-block';
+               UpdModBtn.style.display='none';
+               DelModBtn.style.display='none';
+
+          }
+          else{
+               --index;
+         
+              
+               ModRegno.value = stdList[index][0];
+               ModName.value = stdList[index][1];
+                ModT1Eng.value = stdList[index][2];
+                ModT1Ass.value = stdList[index][3];
+                ModT1Hin.value = stdList[index][4];
+                ModT1Math.value = stdList[index][5];
+                ModT1Gk.value = stdList[index][6];
+
+                ModHYEng.value = stdList[index][7];
+                ModHYAss.value = stdList[index][8];
+                ModHYHin.value = stdList[index][9];
+                ModHYMath.value = stdList[index][10];
+                ModHYGk.value = stdList[index][11];
+
+                ModT2Eng.value = stdList[index][12];
+                ModT2Ass.value = stdList[index][13];
+                ModT2Hin.value = stdList[index][14];
+                ModT2Math.value = stdList[index][15];
+                ModT2Gk.value = stdList[index][16];
+
+                ModFEng.value = stdList[index][17];
+                ModFAss.value = stdList[index][18];
+                ModFHin.value = stdList[index][19];
+                ModFMath.value = stdList[index][20];
+                ModFGk.value = stdList[index][21];
+
+               ModCGPA.value = stdList[index][22];
+               ModRemark.value = stdList[index][23];
+            
+          
+             
+               AddModBtn.style.display='none';
+               UpdModBtn.style.display='inline-block';
+               DelModBtn.style.display='inline-block';
+
+          }
+        }
+
+        function AddStd(){
+             
+             firebase.database().ref("/Marks2022/class_I/" +ModRegno.value).set(
+                  {
+               
+                   
+                    regno: ModRegno.value,
+                    name: ModName.value,
+
+                    t1Eng : ModT1Eng.value,
+                    t1Ass : ModT1Ass.value,
+                    t1Hin : ModT1Hin.value,
+                    t1Math : ModT1Math.value,
+                    t1gk : ModT1Gk.value,
+
+                    hEng : ModHYEng.value,
+                    hAss : ModHYAss.value,
+                    hHin : ModHYHin.value,
+                    hMath : ModHYMath.value,
+                    hgk : ModHYGk.value,
+
+                    t2Eng : ModT2Eng.value, 
+                    t2Ass : ModT2Ass.value ,
+                    t2Hin : ModT2Hin.value ,
+                    t2Math : ModT2Math.value, 
+                    t2gk : ModT2Gk.value ,
+
+                    fEng : ModFEng.value ,
+                    fAss : ModFAss.value ,
+                    fHin : ModFHin.value ,
+                    fMath : ModFMath.value ,
+                    fgk : ModFGk.value,
+
+                    cgpa: ModCGPA.value,
+                    remark: ModRemark.value,
+                   
+               
+
+                  },
+                  (error)=>{
+                       if(error){
+                            alert("Record was not added, there was some problem");
+                       }
+                       else{
+                            document.querySelector('#added').style.display = 'block';
+
+                            setTimeout(function(){
+                            document.querySelector('#added').style.display = 'none';
+                            },3000);
+
+
+                            SelectAllData();
+                   
+
+                            // Clear form
+                            document.getElementById('modal').reset();
+                                                
+                        
+
+                            
+                            
+                       }
+                  }
+             )
+        }
+
+
+
+        function UpdStd(){
+             
+             firebase.database().ref("/Marks2022/class_I/" +ModRegno.value).update(
+                  {
+         
+                    regno: ModRegno.value,
+                    name: ModName.value,
+                    t1Eng : ModT1Eng.value,
+                    t1Ass : ModT1Ass.value,
+                    t1Hin : ModT1Hin.value,
+                    t1Math : ModT1Math.value,
+                    t1gk : ModT1Gk.value,
+
+                    hEng : ModHYEng.value,
+                    hAss : ModHYAss.value,
+                    hHin : ModHYHin.value,
+                    hMath : ModHYMath.value,
+                    hgk : ModHYGk.value,
+
+                    t2Eng : ModT2Eng.value, 
+                    t2Ass : ModT2Ass.value ,
+                    t2Hin : ModT2Hin.value ,
+                    t2Math : ModT2Math.value, 
+                    t2gk : ModT2Gk.value ,
+
+                    fEng : ModFEng.value ,
+                    fAss : ModFAss.value ,
+                    fHin : ModFHin.value ,
+                    fMath : ModFMath.value ,
+                    fgk : ModFGk.value ,
+
+                    cgpa: ModCGPA.value,
+                    remark: ModRemark.value,
+
+
+
+                  },
+                  (error)=>{
+                       if(error){
+                            alert("Record was not updated, there was some problem");
+                       }
+                       else{
+                           
+                        document.querySelector('#updated').style.display = 'block';
+
+                        setTimeout(function(){
+                        document.querySelector('#updated').style.display = 'none';
+                        },3000);
+
+
+                        SelectAllData();
+
+
+                        // Clear form
+                        document.getElementById('modal').reset();
+                            
+                            
+                            
+                       }
+                  }
+             )
+        }
+
+
+
+
+        function DelStd(){
+             
+             firebase.database().ref("/Marks2022/class_I/" +ModRegno.value).remove().then(
+             function(){
+             
+              document.querySelector('#deleted').style.display = 'block';
+
+                        setTimeout(function(){
+                        document.querySelector('#deleted').style.display = 'none';
+                        },3000);
+
+
+                        SelectAllData();
+
+
+                        // Clear form
+                        document.getElementById('modal').reset();
+              
+             }
+             )
+        }
+
+
+
+
+
+
+  </script>
+
+
+</body>
+
+</html>
